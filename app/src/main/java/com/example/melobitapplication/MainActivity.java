@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         imgSearch.setOnClickListener(this);
         imgNewSong.setOnClickListener(this);
+        imgTrendingArtist.setOnClickListener(this);
 
 
 
@@ -48,6 +49,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("key","Latest Song");
                 startActivity(intent);
 
+                break;
+            }
+
+            case R.id.imgTrendingArtist:
+            {
+                Intent intent = new Intent(MainActivity.this,SongActivity.class);
+                intent.putExtra("key","Trending Artist");
+                startActivity(intent);
                 break;
             }
         }

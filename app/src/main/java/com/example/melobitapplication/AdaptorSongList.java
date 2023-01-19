@@ -43,6 +43,7 @@ public class AdaptorSongList extends RecyclerView.Adapter<AdaptorSongList.MyHold
         Picasso.get().load(positions.getImage().getCover().getUrl()).into(holder.imgSong);
 
 
+
     }
 
     @Override

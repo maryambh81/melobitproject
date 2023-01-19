@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,7 +52,8 @@ public class SongActivity extends AppCompatActivity {
     List<ArtistModel> artistModels;
 
     AdaptorSongList adaptorSongList;
-    ///
+    AdaptorArtistList adaptorArtistList;
+
 
 
     @Override
@@ -121,14 +123,18 @@ public class SongActivity extends AppCompatActivity {
         JsonObject jsonObject = gson.fromJson(song,JsonObject.class);
 
         JsonArray jsonArrayView = jsonObject.getAsJsonArray("results");
-        if(flag.equals("Song"))
+        if(flag.equals("Artist"))
+        {
+            ArtistModel[] modelsArtist = gson.fromJson(jsonArrayView,ArtistModel[].class);
+            artistModels.addAll(Arrays.asList(modelsArtist));
+            adaptorArtistList.notifyDataSetChanged();
+        }
+        else if(flag.equals("Song"))
         {
             SongModelList[] modelSong = gson.fromJson(jsonArrayView, SongModelList[].class);
             songModelList.addAll(Arrays.asList(modelSong));
             adaptorSongList.notifyDataSetChanged();
         }
-        ///
-
 
 
     }
@@ -144,7 +150,13 @@ public class SongActivity extends AppCompatActivity {
             recyclecSong.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
             recyclecSong.setHasFixedSize(true);
         }
-        ///
+        else if(flag.equals("Artist"))
+        {
+            adaptorArtistList = new AdaptorArtistList(this,artistModels);
+            recyclecSong.setAdapter(adaptorArtistList);
+            recyclecSong.setLayoutManager(new GridLayoutManager(this,2));
+            recyclecSong.setHasFixedSize(true);
+        }
 
 
     }
@@ -162,22 +174,22 @@ public class SongActivity extends AppCompatActivity {
             {
                 JSONObject jsonObjectSong = jsonItem.getJSONObject(i);
 
-               if(jsonObjectSong.getString("name").equals(key))
-               {
-                   JSONObject jsonRequest = new JSONObject(jsonObjectSong.getString("request"));
-                   JSONObject jsonUrl = new JSONObject(jsonRequest.getString("url"));
-                   path = jsonUrl.getString("raw");
-                   txtxTitel.setText(key);
-                   if (key.equals("Trending Artist"))
-                   {
-                       flag = "Artist";
-                   }
-                   else
-                   {
-                       flag = "Song";
-                   }
+                if(jsonObjectSong.getString("name").equals(key))
+                {
+                    JSONObject jsonRequest = new JSONObject(jsonObjectSong.getString("request"));
+                    JSONObject jsonUrl = new JSONObject(jsonRequest.getString("url"));
+                    path = jsonUrl.getString("raw");
+                    txtxTitel.setText(key);
+                    if (key.equals("Trending Artist"))
+                    {
+                        flag = "Artist";
+                    }
+                    else
+                    {
+                        flag = "Song";
+                    }
 
-               }
+                }
             }
         }
         catch (JSONException e) {

@@ -40,6 +40,7 @@ public class AdaptorSearchSong extends RecyclerView.Adapter<AdaptorSearchSong.My
             Picasso.get().load(positions.getSong().getImage().getThumbnail_small().getUrl()).into(holder.imgSong);
             holder.txtName_Song.setText(positions.getSong().getTitle());
             holder.txtName_Artist.setText(positions.getSong().getArtists().get(0).getFullName());
+            //
 
         }
 

@@ -1,11 +1,13 @@
 package com.example.melobitapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
 
     ImageView imgTop10WeekSong,imgTop10DaySong,imgTrendingArtist,imgNewSong,imglatestSliders,
@@ -25,7 +27,20 @@ public class MainActivity extends AppCompatActivity
         imglatestSliders = findViewById(R.id.imgLatestSliders);
 
 
+        imgSearch.setOnClickListener(this);
 
+
+
+    }
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.imgSearch: {
+                startActivity(new Intent(MainActivity.this, SearchActivity.class));
+
+                break;
+            }
+        }
     }
 
 

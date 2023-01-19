@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         imgSearch.setOnClickListener(this);
+        imgNewSong.setOnClickListener(this);
 
 
 
@@ -37,6 +38,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.imgSearch: {
                 startActivity(new Intent(MainActivity.this, SearchActivity.class));
+
+                break;
+            }
+
+            case R.id.imgNewSong:
+            {
+                Intent intent = new Intent(MainActivity.this,SongActivity.class);
+                intent.putExtra("key","Latest Song");
+                startActivity(intent);
 
                 break;
             }

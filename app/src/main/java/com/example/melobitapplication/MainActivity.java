@@ -6,12 +6,13 @@ import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
 
-    ImageView imgTop10WeekSong,imgTop10DaySong,imgTrendingArtist,imgNewSong,imglatestSliders,
-            imgSearch;
+    ImageView imgTop10WeekSong,imgTop10DaySong,imgTrendingArtist,imgNewSong,imglatestSliders;
+    SearchView seearchview;
 
 
     @Override
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        imgSearch = findViewById(R.id.imgSearch);
+        seearchview =findViewById(R.id.search);
         imgNewSong = findViewById(R.id.imgNewSong);
         imgTrendingArtist = findViewById(R.id.imgTrendingArtist);
         imgTop10DaySong = findViewById(R.id.imgTop10DaySong);
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imglatestSliders = findViewById(R.id.imgLatestSliders);
 
 
-        imgSearch.setOnClickListener(this);
+        seearchview.setOnClickListener(this);
         imgNewSong.setOnClickListener(this);
         imgTrendingArtist.setOnClickListener(this);
         imgTop10WeekSong.setOnClickListener(this);
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.imgSearch: {
+            case R.id.search: {
                 startActivity(new Intent(MainActivity.this, SearchActivity.class));
 
                 break;

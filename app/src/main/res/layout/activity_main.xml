@@ -7,6 +7,7 @@
     android:background="#292929"
     tools:context="com.example.melobitapplication.MainActivity">
 
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -14,40 +15,32 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+            android:orientation="vertical">
 
-                <LinearLayout
+            <RelativeLayout
+                android:layout_width="338dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="20dp"
+                    android:background="@drawable/serach_view_bg"
+                    android:backgroundTint="#DCFFFFFF"
+
+
                     android:orientation="horizontal"
                     android:padding="12dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true">
+                    app:shapeAppearanceOverlay="@style/roundimageview">
 
-                    <ImageView
-                        android:id="@+id/imgSearch"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/ic_baseline_search_24" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="70dp"
-                        android:text="Melobit"
-                        android:textColor="#FFFFFF"
-                        android:textSize="25sp" />
-
-                </LinearLayout>
+                </androidx.appcompat.widget.SearchView>
 
             </RelativeLayout>
 
@@ -56,7 +49,93 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
+                android:background="#292929"
+                app:cardBackgroundColor="#292929"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="402dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="#292929"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imgNewSong"
+                        android:layout_width="153dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="left"
+                        android:layout_margin="5dp"
+                        android:layout_marginTop="3dp"
+                        android:scaleType="centerCrop"
+
+                        android:src="@drawable/latest_songs"
+                        app:shapeAppearanceOverlay="@style/roundimageview" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imgTrendingArtist"
+                        android:layout_width="153dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="right"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="3dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_trending_artists"
+                        app:shapeAppearanceOverlay="@style/roundimageview" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="#292929"
+                app:cardBackgroundColor="#292929"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="#292929"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imgTop10DaySong"
+                        android:layout_width="153dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="left"
+                        android:layout_margin="5dp"
+                        android:layout_marginTop="3dp"
+                        android:scaleType="centerCrop"
+
+                        android:src="@drawable/img_topten_day_songs"
+                        app:shapeAppearanceOverlay="@style/roundimageview" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imgTop10WeekSong"
+                        android:layout_width="153dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="right"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="3dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_topten_week_songs"
+                        app:shapeAppearanceOverlay="@style/roundimageview" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
                 android:background="#292929"
                 app:cardBackgroundColor="#292929"
                 app:cardCornerRadius="10dp"
@@ -68,156 +147,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
                     android:layoutDirection="rtl"
-                    android:orientation="vertical"
-                    android:background="#292929">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:text="Latest Songs"
-                        android:textColor="#AFAEAE"
-                        android:textSize="16sp" />
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imgNewSong"
-                        android:layout_width="match_parent"
-                        android:layout_height="160dp"
-                        android:layout_marginTop="3dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/umg_latest_songs"
-                        app:shapeAppearanceOverlay="@style/roundimageview"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="#292929"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="8dp"
-                    android:layoutDirection="rtl"
                     android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:text="Trending Artists"
-                        android:textColor="#AFAEAE"
-                        android:textSize="16sp" />
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imgTrendingArtist"
-                        android:layout_width="match_parent"
-                        android:layout_height="160dp"
-                        android:layout_marginTop="3dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/img_trending_artists"
-                        app:shapeAppearanceOverlay="@style/roundimageview"/>
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="#292929"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="8dp"
-                    android:layoutDirection="rtl"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:text="Top 10 Day Songs"
-                        android:textColor="#AFAEAE"
-                        android:textSize="16sp" />
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imgTop10DaySong"
-                        android:layout_width="match_parent"
-                        android:layout_height="160dp"
-                        android:layout_marginTop="3dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/img_topten_day_songs"
-                        app:shapeAppearanceOverlay="@style/roundimageview"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="#292929"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="8dp"
-                    android:layoutDirection="rtl"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:text="Top 10 Week Songs"
-                        android:textColor="#AFAEAE"
-                        android:textSize="16sp" />
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imgTop10WeekSong"
-                        android:layout_width="match_parent"
-                        android:layout_height="160dp"
-                        android:layout_marginTop="3dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/img_topten_week_songs"
-                        app:shapeAppearanceOverlay="@style/roundimageview"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="#292929"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="8dp"
-                    android:layoutDirection="rtl"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:text="Latest Sliders"
-                        android:textColor="#AFAEAE"
-                        android:textSize="16sp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imgLatestSliders"
@@ -226,14 +156,29 @@
                         android:layout_marginTop="3dp"
                         android:scaleType="centerCrop"
                         android:src="@drawable/img_latest_sliders"
-                        app:shapeAppearanceOverlay="@style/roundimageview"/>
+                        app:shapeAppearanceOverlay="@style/roundimageview" />
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="#292929"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp">
+
+
             </androidx.cardview.widget.CardView>
 
 
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
 
 
 

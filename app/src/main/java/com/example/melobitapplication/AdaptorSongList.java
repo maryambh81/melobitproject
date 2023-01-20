@@ -1,6 +1,7 @@
 package com.example.melobitapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,16 @@ public class AdaptorSongList extends RecyclerView.Adapter<AdaptorSongList.MyHold
         holder.txtName_Artist.setText(positions.getArtists().get(0).getFullName());
 
         Picasso.get().load(positions.getImage().getCover().getUrl()).into(holder.imgSong);
+        holder.txtName_Song.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, PlaySongActivity.class);
+                intent.putExtra("songId", positions.getId());
+
+                context.startActivity(intent);
+
+            }
+        });
 
 
 

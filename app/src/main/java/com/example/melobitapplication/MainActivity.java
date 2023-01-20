@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imgSearch.setOnClickListener(this);
         imgNewSong.setOnClickListener(this);
         imgTrendingArtist.setOnClickListener(this);
+        imgTop10WeekSong.setOnClickListener(this);
+        imgTop10DaySong.setOnClickListener(this);
+        imglatestSliders.setOnClickListener(this);
+
 
 
 
@@ -56,6 +60,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             {
                 Intent intent = new Intent(MainActivity.this,SongActivity.class);
                 intent.putExtra("key","Trending Artist");
+                startActivity(intent);
+                break;
+            }
+            case R.id.imgTop10DaySong:
+            {
+                Intent intent = new Intent(MainActivity.this,SongActivity.class);
+                intent.putExtra("key","Top 10 Day Song");
+                startActivity(intent);
+                break;
+            }
+
+            case R.id.imgTop10WeekSong:
+            {
+                Intent intent = new Intent(MainActivity.this,SongActivity.class);
+                intent.putExtra("key","Top 10 Week Song");
+                startActivity(intent);
+                break;
+            }
+            case R.id.imgLatestSliders:
+            {
+                Intent intent = new Intent(MainActivity.this,SongActivity.class);
+                intent.putExtra("key","Latest Sliders");
                 startActivity(intent);
                 break;
             }
